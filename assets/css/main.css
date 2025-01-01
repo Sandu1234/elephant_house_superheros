@@ -1,20 +1,8 @@
-/**
-* Template Name: QuickStart
-* Template URL: https://bootstrapmade.com/quickstart-bootstrap-startup-website-template/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
-/*--------------------------------------------------------------
-# Font & Color Variables
-# Help: https://bootstrapmade.com/color-system/
---------------------------------------------------------------*/
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Nunito",  sans-serif;
-  --nav-font: "Inter",  sans-serif;
+  --default-font: "Aktifo A Bold", sans-serif;
+  --heading-font: "Aktifo A Bold", sans-serif;
+  --nav-font: "Aktifo A Bold", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
@@ -34,7 +22,7 @@
   --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
   --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
   --nav-dropdown-color: #313336; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #77b6ca; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-dropdown-hover-color: #108841; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
@@ -44,6 +32,43 @@ section {
   background-repeat: no-repeat; /* Prevents the image from repeating */
   background-position: center; /* Centers the image */
 }
+
+/* Styling for all section titles */
+.section-title h2 {
+  margin-top: 20px !important;
+  font-size: 60px !important; /* Larger font size */
+  font-weight: bold; /* Make it bold */
+  font-family: "Aktifo A Bold", sans-serif; /* Use Aktifo A Bold font */
+  color: var(--heading-color); /* Use the heading color */
+  text-transform: uppercase; /* Make text uppercase */
+  margin-bottom: 20px; /* Add spacing below */
+  position: relative; /* For animation purposes */
+  animation: easeOutEffect 1s ease-out; /* Apply ease-out animation */
+}
+
+/* Remove the line underneath the heading */
+.section-title h2:after {
+  content: none !important; /* Removes the line */
+}
+
+/* Ease-out animation */
+@keyframes easeOutEffect {
+  0% {
+    transform: translateY(20px); /* Start slightly below */
+    opacity: 0; /* Fully transparent */
+  }
+  100% {
+    transform: translateY(0); /* End at original position */
+    opacity: 1; /* Fully visible */
+  }
+}
+
+/* Optional: Center-align headings */
+.section-title {
+  text-align: center;
+}
+
+
 #hero {
   background-color: #108841; /* Or any desired background color */
   background-image: none; /* Remove the background image for this section */
@@ -118,6 +143,7 @@ h6 {
   font-family: var(--heading-font);
 }
 
+
 /* PHP Email Form Messages
 ------------------------------*/
 .php-email-form .error-message {
@@ -176,7 +202,7 @@ h6 {
 .header {
   color: var(--default-color);
   background-color: transparent;
-  padding: 15px 0;
+  padding: 35px 0;
   transition: all 0.5s;
   z-index: 997;
 }
@@ -244,6 +270,12 @@ h6 {
   background-color: transparent;
   transition: background-color 0.3s ease;
 }
+
+ul li a.active {
+  color: var(--contrast-color); /* Highlight color */
+  font-weight: bold; /* Bold text */
+}
+
 
 /* Index Page Header
 ------------------------------*/
@@ -700,6 +732,12 @@ h6 {
   font-size: 13px;
 }
 
+.footer .footer-about .logo img {
+  max-height: 80px; /* Increased from 40px to 60px */
+  margin-right: 6px;
+}
+
+
 /*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
@@ -930,7 +968,7 @@ section,
 
 /* Applying animation to .super-text */
 section.hero .super-text {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Aktifo A Bold", sans-serif;
   font-size: 450px;
   font-weight: bold;
   color: rgba(255, 255, 255, 0.1);
@@ -991,14 +1029,15 @@ section.hero .super-text {
   pointer-events: none; /* Prevent overlay from blocking clicks */
 }
 
-/* Individual text styling and positions */
 /* Keyframes for sliding up from the left */
 @keyframes slideUpLeft {
   0% {
     transform: translate(-300%, 20%); /* Start further off-screen to the left */
+    opacity: 0; /* Invisible at the start */
   }
   100% {
     transform: translate(-50%, -50%); /* Final position */
+    opacity: 1; /* Fully visible */
   }
 }
 
@@ -1008,23 +1047,26 @@ section.hero .super-text {
   top: 28%; /* Adjust to align with the harvester */
   left: 30%; /* Adjust horizontally for the correct position */
   transform: translate(-300%, 20%); /* Start further off-screen to the left */
-  font-family: 'Roboto', sans-serif;
+  font-family: "Aktifo A Bold", sans-serif;
   font-size: 24px; /* Adjust font size based on your preference */
   font-weight: bold;
   color: #ffffff; /* White color for better visibility */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Add shadow for clarity */
   z-index: 4;
+  opacity: 0; /* Initially invisible */
   animation: slideUpLeft 1.5s ease-out forwards; /* Slide up from the left */
-  animation-delay: 0.2s; /* Delay before animation starts */
+  animation-delay: 0.8s; /* Delay before animation starts */
 }
 
 /* Keyframes for sliding down from the top */
 @keyframes slideDownTop {
   0% {
     transform: translate(-50%, -500%); /* Start further off-screen above */
+    opacity: 0; /* Invisible at the start */
   }
   100% {
     transform: translate(-50%, -50%); /* Final position */
+    opacity: 1; /* Fully visible */
   }
 }
 
@@ -1034,23 +1076,26 @@ section.hero .super-text {
   top: 16%; /* Adjust to align with the chef */
   left: 60%; /* Center the text horizontally */
   transform: translate(-50%, -300%); /* Start further off-screen above */
-  font-family: 'Roboto', sans-serif;
+  font-family: "Aktifo A Bold", sans-serif;
   font-size: 24px; /* Adjust font size */
   font-weight: bold;
   color: #ffffff; /* White color for better visibility */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for clarity */
   z-index: 4;
+  opacity: 0; /* Initially invisible */
   animation: slideDownTop 1.5s ease-out forwards; /* Slide down from the top */
-  animation-delay: 0.4s; /* Delay before animation starts */
+  animation-delay: 0.8s; /* Delay before animation starts */
 }
 
 /* Keyframes for sliding up from the right */
 @keyframes slideUpRight {
   0% {
     transform: translate(300%, 20%); /* Start further off-screen to the right */
+    opacity: 0; /* Invisible at the start */
   }
   100% {
     transform: translate(-50%, -50%); /* Final position */
+    opacity: 1; /* Fully visible */
   }
 }
 
@@ -1060,15 +1105,17 @@ section.hero .super-text {
   top: 28%; /* Adjust to align with the entrepreneur */
   left: 72%; /* Adjust horizontally for the correct position */
   transform: translate(300%, 20%); /* Start further off-screen to the right */
-  font-family: 'Roboto', sans-serif;
+  font-family: "Aktifo A Bold", sans-serif;
   font-size: 24px; /* Adjust font size */
   font-weight: bold;
   color: #ffffff; /* White color for better visibility */
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow for clarity */
   z-index: 4;
+  opacity: 0; /* Initially invisible */
   animation: slideUpRight 1.5s ease-out forwards; /* Slide up from the right */
-  animation-delay: 0.6s; /* Delay before animation starts */
+  animation-delay: 0.8s; /* Delay before animation starts */
 }
+
 
 .hero .hero-content {
   position: absolute;
@@ -1090,26 +1137,30 @@ section.hero .super-text {
   color: var(--accent-color);
 }
 
-.hero p {
-  color: var(--default-color);
-  /* margin: 10px 0 20px 0; */
-  font-size: 20px;
-  font-weight: 400;
+#hero .hero-content {
+  width: 100% !important; /* Ensure full width */
+  padding: 0 !important; /* Remove any padding */
+  margin: 0 auto !important; /* Center horizontally */
+  text-align: center !important; /* Align content to the left */
+  position: relative; /* Proper positioning */
+  visibility: visible !important; /* Ensure visibility */
+  display: block !important; /* Ensure it displays */
 }
 
-.hero-content p {
-  font-size: 22px; /* Increase font size for better readability */
-  color: #ffffff; /* Text color */
-  margin: 20px auto; /* Center the paragraph */
-  line-height: 1.3; /* Adjust spacing between lines for a tighter look */
-  text-align: center; /* Center align text */
-  z-index: 5; /* Ensure it appears above other elements */
-  position: relative;
-  top: -400px; /* Adjust vertical positioning */
-  padding: 0 10px; /* Reduce horizontal padding */
-  max-width: 1200px; /* Narrow the maximum width */
-  box-sizing: border-box; /* Include padding in the width calculation */
+#hero .hero-content p {
+  font-size: 18px;
+  margin: 0 auto !important; /* Center the paragraph horizontally */
+  padding: 30px !important; /* Remove padding */
+  text-align: center !important; /* Align text to the left */
+  max-width: 100% !important; /* Use full width */
+  position: relative !important; /* Proper positioning */
+  top: 0 !important; /* Reset top positioning */
+  transform: none !important; /* Remove unwanted transformations */
+  color: #ffffff !important; /* Ensure text is visible */
+  top: -1200px !important; /* Adjust this value to move it higher */
 }
+
+
 
 .hero .btn-get-started {
   color: var(--contrast-color);
@@ -1124,7 +1175,7 @@ section.hero .super-text {
   transition: 0.2s;
   box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1); /* Adjust shadow for emphasis */
   position: relative; /* Ensure it's positioned relative to its parent */
-  top: -350px; /* Adjust this value to move it higher */
+  top: -1200px; /* Adjust this value to move it higher */
 }
 
 
@@ -1134,8 +1185,73 @@ section.hero .super-text {
 }
 
 @media (max-width: 768px) {
+  .hero .hero-content p {
+    font-size: 16px !important; /* Smaller font size for better fit */
+    line-height: 1.3 !important; /* Tighter line spacing */
+    padding: 0 20px !important; /* Add appropriate padding */
+    max-width: 90% !important; /* Reduce the width to fit smaller screens */
+    top: -50px !important; /* Adjust vertical positioning for mobile */
+  }
+
+
+  .hero .super-text {
+    font-size: 150px !important; /* Scaled down for mobile */
+    line-height: 1; /* Adjusted line height for compact spacing */
+    position: absolute;
+    top: 10%; /* Adjust vertical positioning */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, 0); /* Center text */
+    opacity: 0.1; /* Subtle background effect */
+  }
+
+  .supergen-img {
+    width: 100%; /* Ensure the image takes the full width of the screen */
+    height: 320vw !important; /* Maintain the aspect ratio */
+    object-fit: cover; /* Ensure the image covers the container */
+    display: block; /* Ensure proper layout */
+  }
+
+  .hero {
+    height: 180vw !important; /* Allow the hero section's height to adjust dynamically */
+  }
+
   .hero .middle-img {
-    width: 40%; /* Adjust size for smaller screens */
+    top: 20%; /* Center the image more accurately */
+    width: 100% !important; /* Adjust size for mobile screens */
+    max-width: 900px; /* Limit the max size */
+    transform: translate(-50%, -50%) scale(1); /* Standard scaling for mobile */
+  }
+
+  
+  .super-chef
+  {
+    font-size: 16px; /* Adjust font size */
+    top: 8%; /* Adjust top position as needed */
+    left: 65%; /* Adjust left position as needed */
+  }
+
+  .super-harvester {
+    font-size: 16px; /* Adjust font size */
+    top: 18%; /* Adjust top position as needed */
+    left: 24%; /* Adjust left position as needed */
+  }
+
+  .super-entrepreneur {
+    font-size: 16px; /* Adjust font size */
+    top: 18%; /* Adjust top position as needed */
+    left: 80%; /* Adjust left position as needed */
+  }
+
+  .hero .middle-img {
+    width: 50%; /* Adjust size for smaller screens */
+  }
+
+  #hero .hero-content p {
+    font-size: 14px !important; /* Slightly smaller font for mobile screens */
+    line-height: 1.4; /* Adjust spacing for smaller screens */
+    padding: 0 10px; /* Add smaller padding for mobile */
+    max-width: 95%; /* Allow more space on smaller screens */
+    top: -950px !important; /* Adjust position to fit nicely in the layout */
   }
 
   .hero h1 {
@@ -1148,9 +1264,11 @@ section.hero .super-text {
     line-height: 24px;
   }
 
-  .hero .btn-get-started {
-    font-size: 13px;
+  #hero .btn-get-started {
+    font-size: 13px !important;
+    top: -1000px !important;
   }
+  
 }
 
 .hero .hero-content {
@@ -1226,76 +1344,49 @@ section.hero .super-text {
   padding-bottom: 20px;
 }
 
+
 .about .content .who-we-are {
-  text-transform: uppercase;
-  margin-bottom: 15px;
-  color: color-mix(in srgb, var(--heading-color), transparent 40%);
+  font-size: 1.2rem; /* Slightly increase the size for emphasis */
+  font-weight: 600; /* Make it slightly bolder */
+  color: #fff; /* Use a dark color for readability */
 }
 
 .about .content h3 {
-  font-size: 2rem;
-  font-weight: 700;
-}
-
-.about .content ul {
-  list-style: none;
-  padding: 0;
-}
-
-.about .content ul li {
-  padding-bottom: 10px;
-  color: var(--heading-color);
+  font-size: 2.5rem; /* Reduce the size slightly for better balance */
+  font-weight: 700; /* Make it bold */
+  color: #fff; /* Use a darker color for headlines */
+  margin-bottom: 15px; /* Add spacing below the heading */
 }
 
 .about .content p {
-  padding-bottom: 10px;
-  color: var(--heading-color);
+  font-size: 1rem; /* Adjust paragraph font size for readability */
+  line-height: 1.6; /* Add line height for better spacing */
+  color: #fff; /* Use a medium gray for paragraph text */
+}
+
+.about .content ul {
+  padding: 0;
+  margin-top: 10px;
+}
+
+.about .content ul li {
+  font-size: 1rem;
+  color: #fff; /* Use a slightly darker gray for list items */
+  line-height: 1.5;
+  margin-bottom: 10px;
 }
 
 .about .content ul i {
-  font-size: 1.25rem;
-  margin-right: 4px;
-  color: var(--heading-color);
+  color: #fff; /* Use a blue color for icons */
+  margin-right: 8px;
 }
 
-.about .content p:last-child {
-  margin-bottom: 0;
+.about .content .fst-italic {
+  font-size: 1rem;
+  font-style: italic;
+  color: #fff; /* A softer gray for emphasis text */
 }
 
-.about .content .read-more {
-  background: var(--heading-color);
-  color: var(--heading-color);
-  font-family: var(--heading-font);
-  font-weight: 500;
-  font-size: 16px;
-  letter-spacing: 1px;
-  padding: 12px 24px;
-  border-radius: 5px;
-  transition: 0.3s;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.about .content .read-more i {
-  font-size: 18px;
-  margin-left: 5px;
-  line-height: 0;
-  transition: 0.3s;
-}
-
-.about .content .read-more:hover {
-  background: color-mix(in srgb, var(--heading-color), transparent 20%);
-  padding-right: 19px;
-}
-
-.about .content .read-more:hover i {
-  margin-left: 10px;
-}
-
-.about .about-images img {
-  border-radius: 10px;
-}
 
 /*--------------------------------------------------------------
 # Clients Section
@@ -1335,67 +1426,77 @@ section.hero .super-text {
 --------------------------------------------------------------*/
 .features .nav-tabs {
   border: 0;
+  display: flex;
+  flex-direction: column; /* Stack the cards vertically */
+  gap: 15px; /* Add spacing between cards */
 }
 
 .features .nav-item {
-  width: 100%; /* Ensures nav items take full width */
-  margin-bottom: 15px;
-}
-
-.features .nav-item:last-child {
-  margin-bottom: 0;
+  width: 100%; /* Make cards take full width */
 }
 
 .features .nav-link {
   color: var(--heading-color);
-  border: 0;
+  border: 2px solid #fff; /* Add a white border */
   transition: 0.3s;
-  border-radius: 10px;
+  border-radius: 10px; /* Rounded corners */
   display: flex;
   cursor: pointer;
-  padding: 30px 50px; /* Adjust padding horizontally (30px vertically and 50px horizontally) */
-  width: 100%; /* This will make the nav items fill the width of their container */
+  padding: 20px; /* Adjust padding for better spacing */
+  width: 100%;
+  background-color: transparent; /* Keep the background transparent */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
+
 .features .nav-link i {
-  background-color: var(--surface-color);
-  color: var(--accent-color);
+  background-color: var(--accent-color);
+  color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 20px;
+  margin-right: 15px;
   width: 48px;
   height: 48px;
   font-size: 22px;
   flex-shrink: 0;
-  border-radius: 50px;
+  border-radius: 50%;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .features .nav-link h4 {
-  font-size: 20px;
+  font-size: 35px;
   font-weight: 600;
-  margin: 0 0 10px 0;
-  transition: 0.3s;
+  margin-bottom: 5px;
 }
 
 .features .nav-link p {
-  font-size: 15px;
+  font-size: 18px;
   margin: 0;
+  line-height: 1.5;
+  color: #fff;
 }
 
 .features .nav-link:hover {
-  background-color: color-mix(in srgb, var(--surface-color), transparent 50%);
+  background-color: color-mix(in srgb, var(--surface-color), transparent 30%); /* Reduced opacity for a lighter overlay */
 }
 
 .features .nav-link.active {
-  background-color: color-mix(in srgb, var(--surface-color), transparent 50%);
+  background-color: color-mix(in srgb, var(--surface-color), transparent 30%); /* Reduced opacity for a lighter overlay */
   color: var(--default-color);
 }
 
-.features .tab-pane img {
-  border-radius: 15px;
+
+.features .nav-link.active h4, 
+.features .nav-link.active p{
+  color: var(--accent-color); /* Ensure all child elements use --accent-color */
 }
+
+.features .nav-link.active i {
+  color: #f1f1f1; /* Ensure all child elements use --accent-color */
+}
+
+
 
 /*--------------------------------------------------------------
 # Features Details Section
@@ -1412,9 +1513,10 @@ section.hero .super-text {
 }
 
 .features-details .features-item h3 {
-  font-weight: 700;
-  font-size: 26px;
+  font-weight: 900;
+  font-size: 60px;
   margin-bottom: 15px;
+  text-transform: uppercase;
 }
 
 .features-details .features-item .more-btn {
@@ -1454,6 +1556,57 @@ section.hero .super-text {
   color: color-mix(in srgb, var(--default-color), transparent 60%);
 }
 
+.image-wrapper {
+  position: relative;
+}
+
+.image-wrapper img.img-fluid {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-wrapper img.new-image {
+  position: absolute;
+  top: 20%; /* Moves the image down */
+  left: 50%; /* Centers the image horizontally */
+  transform: translateX(-50%); /* Ensures the image stays centered */
+  width: 80%; /* Adjust the size to make it smaller */
+  height: auto; /* Maintains aspect ratio */
+  object-fit: contain; /* Keeps the entire image visible without cropping */
+  opacity: 0.8; /* Optional: Adjust transparency */
+  pointer-events: none; /* Prevent interaction with overlay */
+  clip-path: inset(0px 0 70px 0); /* Crop 50px from the top and 200px from the bottom */
+  transition: transform 0.4s ease-out, opacity 0.4s ease-out; /* Adds a smooth transition effect */
+}
+
+.image-wrapper:hover img.new-image {
+  transform: translateX(-50%) scale(1.1); /* Slightly enlarges the image on hover */
+  opacity: 1; /* Makes the image fully visible on hover */
+}
+
+.image-wrapper .hover-text {
+  position: absolute;
+  bottom: 10%; /* Position near the bottom */
+  left: 50%; /* Center horizontally */
+  transform: translate(-50%, 50%); /* Initial position below */
+  font-family: "Aktifo A Bold", sans-serif; /* Set the font */
+  font-weight: bold; /* Bold text */
+  color: rgba(255, 255, 255, 0.8); /* Light, translucent text */
+  font-size: 36px; /* Font size */
+  text-transform: uppercase; /* Uppercase text */
+  opacity: 0; /* Initially hidden */
+  white-space: nowrap; /* Prevent text from wrapping to the next line */
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Smooth hover effects */
+  z-index: 3; /* Ensure it appears above the image */
+}
+
+
+/* When hovering over the image, show the text */
+.image-wrapper:hover img.new-image + .hover-text {
+  transform: translate(-50%, 0); /* Move the text into view */
+  opacity: 1; /* Make the text fully visible */
+}
 
 /*--------------------------------------------------------------
 # Services Section
@@ -1674,7 +1827,7 @@ section.hero .super-text {
   background-color: #0C2F00;
   border-radius: 15px;
   padding: 20px;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Aktifo A Bold", sans-serif;
   font-size: 20px;
   font-weight: bold;
   text-transform: uppercase;
@@ -1715,7 +1868,7 @@ section.hero .super-text {
 }
 
 .pricing .pricing-item .super-text .super {
-  font-family: 'Roboto', sans-serif; /* Set the font */
+  font-family: "Aktifo A Bold", sans-serif; /* Set the font */
   font-weight: bold; /* Bold text */
   color: rgba(255, 255, 255, 0.3); /* Light, translucent text */
   font-size: 140px; /* Font size */
@@ -1725,7 +1878,7 @@ section.hero .super-text {
 }
 
 .pricing .pricing-item .super-text .rest {
-  font-family: 'Roboto', sans-serif; /* Set the font */
+  font-family: "Aktifo A Bold", sans-serif; /* Set the font */
   font-weight: bold; /* Bold text */
   color: rgba(255, 255, 255, 0.3); /* Light, translucent text */
   font-size: 150px; /* Slightly smaller font size */
@@ -1743,7 +1896,7 @@ section.hero .super-text {
   bottom: 10%; /* Position near the bottom */
   left: 50%; /* Center horizontally */
   transform: translate(-50%, 50%); /* Initial position below */
-  font-family: 'Roboto', sans-serif; /* Set the font */
+  font-family: "Aktifo A Bold", sans-serif; /* Set the font */
   font-weight: bold; /* Bold text */
   color: rgba(255, 255, 255, 0.8); /* Light, translucent text */
   font-size: 24px; /* Font size */

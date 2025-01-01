@@ -179,3 +179,17 @@
 
 })();
 
+document.addEventListener('DOMContentLoaded', () => {
+  const navLinks = document.querySelectorAll('ul li a');
+  const currentPath = window.location.pathname;
+
+  navLinks.forEach(link => {
+    // Remove active class from all links
+    link.classList.remove('active');
+
+    // Add active class if the href matches the current path
+    if (link.getAttribute('href') === currentPath.split('/').pop()) {
+      link.classList.add('active');
+    }
+  });
+});
