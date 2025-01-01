@@ -2225,10 +2225,11 @@ section.hero .super-text {
   font-size: 18px;
   font-weight: 700;
   margin: 10px 0;
+  color: var(--accent-color);
 }
 
 .contact .info-item p {
-  padding: 0;
+  padding: 20px;
   margin-bottom: 0;
   font-size: 14px;
 }
