@@ -1424,10 +1424,14 @@ section.hero .super-text {
 /*--------------------------------------------------------------
 # Features Section
 --------------------------------------------------------------*/
+.features {
+  padding: 60px 0;
+}
+
 .features .nav-tabs {
   border: 0;
   display: flex;
-  flex-direction: column; /* Stack the cards vertically */
+  flex-direction: column;
   gap: 15px; /* Add spacing between cards */
 }
 
@@ -1436,68 +1440,117 @@ section.hero .super-text {
 }
 
 .features .nav-link {
-  color: var(--heading-color);
-  border: 2px solid #fff; /* Add a white border */
+  color: #fff;
+  border: none; /* Remove border for better appearance */
   transition: 0.3s;
   border-radius: 10px; /* Rounded corners */
   display: flex;
-  cursor: pointer;
-  padding: 20px; /* Adjust padding for better spacing */
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+  align-items: flex-start;
+  padding: 20px;
   width: 100%;
-  background-color: transparent; /* Keep the background transparent */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  height: 500px; /* Set a fixed height for the card */
+  background-size: contain; /* Ensure the image fits within the card */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-position: center; /* Center the image within the card */
+  position: relative; /* Make content positioning relative to the card */
 }
 
-
-.features .nav-link i {
-  background-color: var(--accent-color);
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 15px;
-  width: 48px;
-  height: 48px;
-  font-size: 22px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.features .nav-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2); /* Add a dark overlay for text contrast */
+  border-radius: 10px; /* Match the card's border radius */
+  z-index: 0; /* Place the overlay behind the text */
 }
 
-.features .nav-link h4 {
-  font-size: 35px;
-  font-weight: 600;
-  margin-bottom: 5px;
+.features .nav-link h4{
+  font-size: 80px;
+  font-weight: 800;
 }
 
+.features .nav-link p{
+  font-size: 30px;
+  font-weight: 200;
+}
+
+.features .nav-link h4,
 .features .nav-link p {
-  font-size: 18px;
-  margin: 0;
-  line-height: 1.5;
-  color: #fff;
+  z-index: 1; /* Place the text above the background image */
+  margin: 40px 20px; /* Add spacing from the edges */
+  color: #fff; /* Ensure the text is readable on the background */
 }
 
-.features .nav-link:hover {
-  background-color: color-mix(in srgb, var(--surface-color), transparent 30%); /* Reduced opacity for a lighter overlay */
+.ministry-collaboration .ministry-text {
+  margin: 10px 20px !important; /* Add spacing from the edges */
 }
 
-.features .nav-link.active {
-  background-color: color-mix(in srgb, var(--surface-color), transparent 30%); /* Reduced opacity for a lighter overlay */
-  color: var(--default-color);
+.features .nav-link::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px; /* Match the card's border radius */
+  z-index: 0; /* Place the overlay behind the text */
 }
 
+/* Responsive Design */
+@media (max-width: 992px) {
+  .features .nav-link {
+    height: 400px;
+    padding: 15px;
+  }
 
-.features .nav-link.active h4, 
-.features .nav-link.active p{
-  color: var(--accent-color); /* Ensure all child elements use --accent-color */
+  .features .nav-link h4 {
+    font-size: 60px;
+  }
+
+  .features .nav-link p {
+    font-size: 20px;
+  }
 }
 
-.features .nav-link.active i {
-  color: #f1f1f1; /* Ensure all child elements use --accent-color */
+@media (max-width: 767px) {
+  .features .nav-link {
+    height: 400px;
+    padding: 10px;
+  }
+
+  .features .nav-link h4 {
+    font-size: 40px;
+  }
+
+  .features .nav-link p {
+    font-size: 18px;
+    margin: -30px 20px;
+  }
+
+  .ministry-collaboration .ministry-text {
+    margin: -30px 20px !important; /* Add spacing from the edges */
+  }
 }
 
+@media (max-width: 420px) {
+  .features .nav-link {
+    height: 250px;
+    padding: 5px;
+  }
 
+  .features .nav-link h4 {
+    font-size: 30px;
+  }
 
+  .features .nav-link p {
+    font-size: 14px;
+  }
+}
 /*--------------------------------------------------------------
 # Features Details Section
 --------------------------------------------------------------*/
