@@ -59,16 +59,6 @@
   });
 
   /**
-   * Preloader
-   */
-  const preloader = document.querySelector('#preloader');
-  if (preloader) {
-    window.addEventListener('load', () => {
-      preloader.remove();
-    });
-  }
-
-  /**
    * Scroll top button
    */
   let scrollTop = document.querySelector('.scroll-top');
@@ -176,6 +166,39 @@
   }
   window.addEventListener('load', navmenuScrollspy);
   document.addEventListener('scroll', navmenuScrollspy);
+
+  document.addEventListener("DOMContentLoaded", function () {
+    const navTabs = document.querySelector(".features .nav-tabs");
+    const scrollLeftBtn = document.querySelector(".scroll-btn-left");
+    const scrollRightBtn = document.querySelector(".scroll-btn-right");
+    const cards = document.querySelectorAll(".features .nav-item");
+  
+    let currentIndex = 0; // Track the current card index
+  
+    // Scroll to a specific card based on index
+    function scrollToCard(index) {
+      if (index < 0 || index >= cards.length) return; // Prevent out-of-bound indexes
+  
+      const cardWidth = cards[0].offsetWidth + parseInt(getComputedStyle(navTabs).gap) || 0;
+      navTabs.scrollTo({
+        top: 0,
+        left: cardWidth * index,
+        behavior: "smooth",
+      });
+  
+      currentIndex = index; // Update the current index
+    }
+  
+    scrollLeftBtn.addEventListener("click", () => {
+      scrollToCard(currentIndex - 1); // Go to the previous card
+    });
+  
+    scrollRightBtn.addEventListener("click", () => {
+      scrollToCard(currentIndex + 1); // Go to the next card
+    });
+  });
+  
+  
 
 })();
 
